@@ -1,4 +1,4 @@
-# Uncomment the next line to define a global platform for your project
+#Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
 target 'Flix' do
@@ -6,9 +6,7 @@ target 'Flix' do
   use_frameworks!
 
   # Pods for Flix
-    pod 'Alamofire', '~> 4.4'
-    pod 'OAuthSwift', '~> 1.1.0'
-    pod 'OAuthSwiftAlamofire'
+    pod 'Alamofire', '~> 4.5'
 
   target 'FlixTests' do
     inherit! :search_paths
