@@ -24,9 +24,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vwI-nr-E1F">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vwI-nr-E1F">
+                                <rect key="frame" x="0.0" y="81" width="375" height="586"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="220" id="blM-cJ-tba" customClass="MovieTableViewCell" customModule="Flix" customModuleProvider="target">
@@ -79,8 +78,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vu0-s3-fpo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bs-S6-JaH">
+                                        <rect key="frame" x="157" y="28" width="60" height="25"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                        <color key="textColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8Bs-S6-JaH" secondAttribute="bottom" constant="20" id="8gt-37-Pdh"/>
+                                    <constraint firstItem="8Bs-S6-JaH" firstAttribute="top" secondItem="vu0-s3-fpo" secondAttribute="top" constant="28" id="Bnb-7f-Aj0"/>
+                                    <constraint firstItem="8Bs-S6-JaH" firstAttribute="centerX" secondItem="vu0-s3-fpo" secondAttribute="centerX" id="OYY-FM-IGw"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vu0-s3-fpo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1Vi-Ud-EZg"/>
+                            <constraint firstItem="vwI-nr-E1F" firstAttribute="top" secondItem="vu0-s3-fpo" secondAttribute="bottom" constant="8" id="6Vz-8s-0bL"/>
+                            <constraint firstItem="vu0-s3-fpo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="CFH-9g-OWm"/>
+                            <constraint firstItem="vwI-nr-E1F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="L0M-QT-w5m"/>
+                            <constraint firstItem="vu0-s3-fpo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SYG-6x-OFu"/>
+                            <constraint firstItem="vwI-nr-E1F" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ld4-Hm-MUe"/>
+                            <constraint firstItem="vwI-nr-E1F" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pwm-bS-mf5"/>
+                            <constraint firstItem="vu0-s3-fpo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rxw-Hz-Lvl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
