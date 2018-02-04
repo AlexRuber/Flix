@@ -44,13 +44,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-Ze-MXt">
-                                                    <rect key="frame" x="155" y="5" width="72" height="41"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
+                                                    <rect key="frame" x="155" y="5" width="205" height="36"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="26"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5y-uR-SoU">
-                                                    <rect key="frame" x="155" y="51" width="210" height="163"/>
+                                                    <rect key="frame" x="155" y="46" width="210" height="168"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <string key="text">Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.</string>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
@@ -67,6 +67,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="iJ4-Kl-tPn" secondAttribute="bottom" constant="5" id="neu-bH-pNE"/>
                                                 <constraint firstItem="iJ4-Kl-tPn" firstAttribute="top" secondItem="lFj-1O-aU3" secondAttribute="top" constant="5" id="peK-zW-Vg2"/>
                                                 <constraint firstItem="B5y-uR-SoU" firstAttribute="leading" secondItem="iJ4-Kl-tPn" secondAttribute="trailing" constant="8" id="rou-gL-A3m"/>
+                                                <constraint firstAttribute="trailing" secondItem="U2e-Ze-MXt" secondAttribute="trailing" constant="15" id="stX-QT-m8S"/>
                                                 <constraint firstAttribute="bottom" secondItem="B5y-uR-SoU" secondAttribute="bottom" constant="5" id="tR7-B2-Uy3"/>
                                             </constraints>
                                         </tableViewCellContentView>

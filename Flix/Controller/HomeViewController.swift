@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import SVProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     // Outlets
@@ -20,8 +21,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Activity Spinner
+        SVProgressHUD.show()
+        
         refresher = UIRefreshControl()
-        refresher.attributedTitle = NSAttributedString(string: "Refreshing Feed 😊")
+        refresher.attributedTitle = NSAttributedString(string: "Updating movies 😊")
         refresher.addTarget(self, action: #selector(HomeViewController.didPullToRefresh), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refresher, at: 0)
         
@@ -29,6 +33,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
       tableView.delegate = self
       tableView.dataSource = self
       fetchMovies()
+      
     }
     
     @objc func didPullToRefresh() {
@@ -55,6 +60,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 self.movies = movies
                 self.tableView.reloadData()
                 self.refresher.endRefreshing()
+                SVProgressHUD.dismiss()
             }
         }
         task.resume()
