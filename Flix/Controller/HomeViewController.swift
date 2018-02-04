@@ -16,13 +16,26 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // Variables
     var movies: [[String:Any]] = []
     let BASE_URL = "https://image.tmdb.org/t/p/w500"
+    var refresher: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Refreshing Feed 😊")
+        refresher.addTarget(self, action: #selector(HomeViewController.didPullToRefresh), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refresher, at: 0)
+        
         // Do any additional setup after loading the view, typically from a nib.
       tableView.delegate = self
       tableView.dataSource = self
-        
+      fetchMovies()
+    }
+    
+    @objc func didPullToRefresh() {
+        fetchMovies()
+    }
+    
+    func fetchMovies() {
         // Call the API
         // Do any additional setup after loading the view, typically from a nib.
         // Network request snippet
@@ -41,16 +54,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 //Set global variable movies to movies
                 self.movies = movies
                 self.tableView.reloadData()
+                self.refresher.endRefreshing()
             }
         }
         task.resume()
-        
-    }
-    
-        
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

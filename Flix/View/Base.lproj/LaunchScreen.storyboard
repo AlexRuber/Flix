@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Heavy</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -19,17 +24,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_image" translatesAutoresizingMaskIntoConstraints="NO" id="87e-E9-qaa">
-                                <rect key="frame" x="137" y="243.5" width="100" height="100"/>
+                                <rect key="frame" x="137" y="193.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="85D-6p-Uhl"/>
                                     <constraint firstAttribute="height" constant="100" id="95f-PV-tvT"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flix" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVk-oG-8bh">
+                                <rect key="frame" x="163" y="313" width="49" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
+                                <color key="textColor" red="0.21195325255393982" green="0.20397678017616272" blue="0.19971132278442383" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="VVk-oG-8bh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Heh-if-n57"/>
                             <constraint firstItem="87e-E9-qaa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LPl-6n-id0"/>
-                            <constraint firstItem="87e-E9-qaa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-40" id="tEs-uO-nxU"/>
+                            <constraint firstItem="VVk-oG-8bh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Tma-Yf-tgv"/>
+                            <constraint firstItem="87e-E9-qaa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-90" id="tEs-uO-nxU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
