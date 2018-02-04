@@ -9,6 +9,12 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+            <string>Avenir-Heavy</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -23,37 +29,51 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="206" id="blM-cJ-tba" customClass="MovieTableViewCell" customModule="Flix" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="206"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="220" id="blM-cJ-tba" customClass="MovieTableViewCell" customModule="Flix" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="blM-cJ-tba" id="lFj-1O-aU3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="205.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="219.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJ4-Kl-tPn">
-                                                    <rect key="frame" x="15" y="11" width="137" height="184"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iJ4-Kl-tPn">
+                                                    <rect key="frame" x="10" y="5" width="137" height="209"/>
+                                                    <color key="backgroundColor" red="0.48462498331083803" green="1" blue="0.4655316865453385" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="137" id="UNW-kZ-nT2"/>
+                                                        <constraint firstAttribute="height" constant="209" id="jrl-D6-ZEL"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title of Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-Ze-MXt">
-                                                    <rect key="frame" x="166" y="11" width="194" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2e-Ze-MXt">
+                                                    <rect key="frame" x="155" y="5" width="72" height="41"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="B5y-uR-SoU">
-                                                    <rect key="frame" x="166" y="38" width="202" height="157"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5y-uR-SoU">
+                                                    <rect key="frame" x="155" y="51" width="210" height="163"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <string key="text">Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.</string>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="B5y-uR-SoU" firstAttribute="top" secondItem="U2e-Ze-MXt" secondAttribute="bottom" constant="5" id="Arl-WJ-rRz"/>
+                                                <constraint firstItem="U2e-Ze-MXt" firstAttribute="leading" secondItem="iJ4-Kl-tPn" secondAttribute="trailing" constant="8" id="Exm-bt-xum"/>
+                                                <constraint firstAttribute="trailing" secondItem="B5y-uR-SoU" secondAttribute="trailing" constant="10" id="KAI-g8-k56"/>
+                                                <constraint firstItem="iJ4-Kl-tPn" firstAttribute="centerY" secondItem="lFj-1O-aU3" secondAttribute="centerY" id="Nsj-7b-eHq"/>
+                                                <constraint firstItem="iJ4-Kl-tPn" firstAttribute="leading" secondItem="lFj-1O-aU3" secondAttribute="leading" constant="10" id="jXC-Ga-BbS"/>
+                                                <constraint firstItem="U2e-Ze-MXt" firstAttribute="top" secondItem="lFj-1O-aU3" secondAttribute="top" constant="5" id="kDS-oY-vyv"/>
+                                                <constraint firstAttribute="bottom" secondItem="iJ4-Kl-tPn" secondAttribute="bottom" constant="5" id="neu-bH-pNE"/>
+                                                <constraint firstItem="iJ4-Kl-tPn" firstAttribute="top" secondItem="lFj-1O-aU3" secondAttribute="top" constant="5" id="peK-zW-Vg2"/>
+                                                <constraint firstItem="B5y-uR-SoU" firstAttribute="leading" secondItem="iJ4-Kl-tPn" secondAttribute="trailing" constant="8" id="rou-gL-A3m"/>
+                                                <constraint firstAttribute="bottom" secondItem="B5y-uR-SoU" secondAttribute="bottom" constant="5" id="tR7-B2-Uy3"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="movieDescriptionTextView" destination="B5y-uR-SoU" id="WEV-1z-Dti"/>
-                                            <outlet property="movieImage" destination="iJ4-Kl-tPn" id="WKS-sN-WrW"/>
+                                            <outlet property="movieImage" destination="iJ4-Kl-tPn" id="lfY-lw-Izh"/>
                                             <outlet property="movieTitleLabel" destination="U2e-Ze-MXt" id="rEt-mb-fGO"/>
                                         </connections>
                                     </tableViewCell>

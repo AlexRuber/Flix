@@ -170,7 +170,6 @@
 			children = (
 				980736F220214D5B004793A1 /* Main.storyboard */,
 				980736F720214D5B004793A1 /* LaunchScreen.storyboard */,
-				985267F0202156F700ED41E0 /* MovieTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +177,7 @@
 		985267EF2021513200ED41E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				985267F0202156F700ED41E0 /* MovieTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,10 +354,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Flix/Pods-Flix-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

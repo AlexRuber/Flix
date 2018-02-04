@@ -12,9 +12,7 @@ class MovieTableViewCell: UITableViewCell {
     
     // Outlets
     @IBOutlet weak var movieImage: UIImageView!
-    
     @IBOutlet weak var movieTitleLabel: UILabel!
-    
     @IBOutlet weak var movieDescriptionTextView: UITextView!
     
     // Variables
