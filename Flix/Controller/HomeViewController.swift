@@ -56,6 +56,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
                 // Get the dictionary from the response key
                 let movies = dataDictionary["results"] as! [[String:Any]]
+                print(movies)
                 //Set global variable movies to movies
                 self.movies = movies
                 self.tableView.reloadData()
@@ -71,16 +72,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath) as? MovieTableViewCell {
             let movie = movies[indexPath.row]
             let movieTitle = movie["title"] as! String
             let voteAvg = String(describing: movie["vote_average"] as! NSNumber)
             let releaseDate = movie["release_date"] as! String
             let movieImgURL = movie["poster_path"] as! String
             let description = movie["overview"] as! String
+            
+            // Setting up the view
             cell.movieTitleLabel.text = movieTitle
             cell.movieDescriptionTextView.text = description
-            
             let posterURL = URL(string: "\(BASE_URL)\(movieImgURL)")
             if let posterURL = posterURL {
                 cell.movieImage.af_setImage(withURL: posterURL)
