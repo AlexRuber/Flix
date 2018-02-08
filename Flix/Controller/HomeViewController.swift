@@ -24,6 +24,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //Activity Spinner
         SVProgressHUD.show()
         
+        // Nav Bar Custom Settings
+        //Navigation Shadow
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.gray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 0.5)
+        self.navigationController?.navigationBar.layer.shadowRadius = 2.0
+        self.navigationController?.navigationBar.layer.shadowOpacity = 1.0
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Updating movies 😊")
         refresher.addTarget(self, action: #selector(HomeViewController.didPullToRefresh), for: UIControlEvents.valueChanged)
@@ -56,7 +64,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 
                 // Get the dictionary from the response key
                 let movies = dataDictionary["results"] as! [[String:Any]]
-                print(movies)
                 //Set global variable movies to movies
                 self.movies = movies
                 self.tableView.reloadData()
@@ -79,7 +86,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let releaseDate = movie["release_date"] as! String
             let movieImgURL = movie["poster_path"] as! String
             let description = movie["overview"] as! String
-            
+            print(voteAvg)
             // Setting up the view
             cell.movieTitleLabel.text = movieTitle
             cell.movieDescriptionTextView.text = description
