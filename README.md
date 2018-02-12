@@ -74,38 +74,44 @@ Time spent: **1.5** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User can tap a cell to see a detail view (+5pts)
-- [ ] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView (+5pts)
+- [X] User can tap a cell to see a detail view (+5pts)
+- [X] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView (+5pts)
 
 The following **stretch** features are implemented:
 
-- [ ] User can tap a poster in the collection view to see a detail screen of that movie (+3pts)
-- [ ] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer (+3pts)
-- [ ] Customize the navigation bar (+1pt)
-- [ ] List in any optionals you didn't finish from last week (+1-3pts)
-   - ...
-   - ...
+- [X] User can tap a poster in the collection view to see a detail screen of that movie (+3pts)
+- [X] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer (+3pts)
+- [X] Customize the navigation bar (+1pt)
+- [X] List in any optionals you didn't finish from last week (nav bar customization)  (+1-3pts)
+ 
 
 The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
+- [X] Custom UICollectionView subclass for layout to match Pinterest-like UI (+3pts)
+- [X] Custom Shadow View on NavBar (+3pts)
+- [X] Double Tap Like functionality (+1pt)
+- [X] Store like heart image seperately (+1pt)
+- [X] Custom SUVSpinner before movies load (+3pts)
+- [X] Manual refresh with custom message (+3pts)
+- [X] Added the rating of the movie (+3pts)
+- [X] Added date released of the movie (+3pts)
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1.Going to store the like in userdefaults to remember which movies you liked 
+2.Update the UI further, upload to App Store 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/jfiPiy9.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
 Describe any challenges encountered while building the app.
+Double tap for liking was a challenge. 
 
 ## License
 
