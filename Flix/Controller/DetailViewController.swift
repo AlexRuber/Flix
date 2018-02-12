@@ -23,12 +23,20 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UITextView!
     @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var heartPopup: UIImageView!
+    @IBOutlet weak var rememberLike: UIImageView!
     
     // Variables
     var movie: [String : Any]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Double tap
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(DetailViewController.likeAnimation))
+        tapGR.delegate = self
+        tapGR.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tapGR)
         
         if let movie = movie {
             titleLabel.text = movie[MovieKeys.title] as? String
@@ -47,6 +55,8 @@ class DetailViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,4 +74,25 @@ class DetailViewController: UIViewController {
     }
     */
 
+}
+
+extension DetailViewController: UIGestureRecognizerDelegate {
+    @objc func likeAnimation() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction, animations: {() -> Void in
+            self.heartPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.heartPopup.alpha = 1.0
+        }, completion: {(_ finished: Bool) -> Void in
+            UIView.animate(withDuration: 0.1, delay: 0, options: .allowUserInteraction, animations: {() -> Void in
+                self.heartPopup.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            }, completion: {(_ finished: Bool) -> Void in
+                UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction, animations: {() -> Void in
+                    self.heartPopup.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+                    self.heartPopup.alpha = 0.0
+                }, completion: {(_ finished: Bool) -> Void in
+                    self.heartPopup.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                })
+            })
+        })
+        rememberLike.isHidden = false
+    }
 }
