@@ -140,28 +140,30 @@ Time spent: **X** hours spent in total
 The following **required** user stories are complete:
 
 - The following screens use AutoLayout to adapt to various orientations and screen sizes
-   - [ ] Movie feed view (+3pt)
-   - [ ] Detail view (+2pt)
+   - [X] Movie feed view (+3pt)
+   - [X] Detail view (+2pt)
 
 The following **stretch** user stories are implemented:
 
-- [ ] Dynamic Height Cells (+1)
-- [ ] Collection View AutoLayout (+2)
+- [X] Dynamic Height Cells (+1)
+- [X] Collection View AutoLayout (+2)
 
 The following **additional** user stories are implemented:
+- [X] Works for iPad (+2)
 
-- [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
+- [X] List anything else that you can get done to improve the app functionality! (+1-3pts)
+- [X] Added a heart (+2)
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. Having it work for iPad
+2. Adding dynamic cell sizing
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/V9Mn0Pj.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -171,7 +173,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2018] [Alex Ruber]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
