@@ -53,30 +53,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view, typically from a nib.
         // Network request snippet
         // Get movies playing now
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1")!
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
-        let task = session.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data,
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
-                // Get the dictionary from the response key
-                //Set global variable movies to movies
-                self.movies = []
-                for dictionary in movieDictionaries {
-                    let movie = Movie(dictionary: dictionary)
-                    self.movies.append(movie)
-                }
-                
-                
+        MovieApiManager().nowPlayingMovies { (movies: [Movie]?, error: Error?) in
+            if let movies = movies {
+                self.movies = movies
                 self.tableView.reloadData()
-                self.refresher.endRefreshing()
                 SVProgressHUD.dismiss()
+
             }
         }
-        task.resume()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
