@@ -15,7 +15,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     
     // Variables
-    var movies: [[String:Any]] = []
+    var movies: [Movie] = []
     let BASE_URL = "https://image.tmdb.org/t/p/w500"
     var refresher: UIRefreshControl!
     
@@ -61,11 +61,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 print(error.localizedDescription)
             } else if let data = data,
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                
+                let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
                 // Get the dictionary from the response key
-                let movies = dataDictionary["results"] as! [[String:Any]]
                 //Set global variable movies to movies
-                self.movies = movies
+                self.movies = []
+                for dictionary in movieDictionaries {
+                    let movie = Movie(dictionary: dictionary)
+                    self.movies.append(movie)
+                }
+                
+                
                 self.tableView.reloadData()
                 self.refresher.endRefreshing()
                 SVProgressHUD.dismiss()
@@ -80,20 +85,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath) as? MovieTableViewCell {
-            let movie = movies[indexPath.row]
-            let movieTitle = movie["title"] as! String
-            let voteAvg = String(describing: movie["vote_average"] as! NSNumber)
-            let releaseDate = movie["release_date"] as! String
-            let movieImgURL = movie["poster_path"] as! String
-            let description = movie["overview"] as! String
-            print(voteAvg)
+            let movie: Movie = movies[indexPath.row]
+            cell.movieTitleLabel.text = movie.title
+            cell.movieDescriptionTextView.text = movie.overview
+            cell.movieImage.af_setImage(withURL: movie.posterUrl!)
+//            let movieTitle = movie["title"] as! String
+//            let voteAvg = String(describing: movie["vote_average"] as! NSNumber)
+//            let releaseDate = movie["release_date"] as! String
+//            let movieImgURL = movie["poster_path"] as! String
+//            let description = movie["overview"] as! String
+//            print(voteAvg)
             // Setting up the view
-            cell.movieTitleLabel.text = movieTitle
-            cell.movieDescriptionTextView.text = description
-            let posterURL = URL(string: "\(BASE_URL)\(movieImgURL)")
-            if let posterURL = posterURL {
-                cell.movieImage.af_setImage(withURL: posterURL)
-            }
+//            cell.movieTitleLabel.text = movieTitle
+//            cell.movieDescriptionTextView.text = description
+//            let posterURL = URL(string: "\(BASE_URL)\(movieImgURL)")
+//            if let posterURL = posterURL {
+//                cell.movieImage.af_setImage(withURL: posterURL)
+//            }
             
             return cell
         } else {
@@ -104,7 +112,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
         if let indexPath = tableView.indexPath(for: cell) {
-            let movie = movies[indexPath.row]
+            let movie:Movie = movies[indexPath.row]
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.movie = movie
         }

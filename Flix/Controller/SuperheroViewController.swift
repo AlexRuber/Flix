@@ -11,7 +11,7 @@ import UIKit
 class SuperheroViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // Variables
-    var movies: [[String: Any]] = []
+    var movies: [Movie] = []
     let BASE_URL = "https://image.tmdb.org/t/p/w500"
     
     // Outlets
@@ -41,17 +41,22 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as? PosterCell {
-            let movies = self.movies[indexPath.item]
-            if let posterPathString = movies["poster_path"] as? String {
-                let baseURLString = BASE_URL
-                let posterURL = URL(string: baseURLString + posterPathString)!
-                cell.posterImageView.af_setImage(withURL: posterURL)
-            }
-            return cell
-        } else {
-            return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath)
+        
+        if let posterCell = cell as? PosterCell {
+            let movie: Movie = self.movies[indexPath.row]
+            posterCell.posterImageView.af_setImage(withURL: movie.posterUrl!)
         }
+        
+        return cell
+        
+//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCell", for: indexPath) as? PosterCell {
+//            let movie: Movie = self.movies[indexPath.row]
+//            cell.posterImageView.af_setImage(withURL: movie.posterUrl!)
+//            return cell
+//        } else {
+//            return UICollectionViewCell()
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,6 +65,7 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
             let movie = movies[indexPath.item]
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.movie = movie
+            
         }
         
     }
@@ -78,14 +84,19 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource, UIC
                 print(error.localizedDescription)
             } else if let data = data,
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                
+                let movieDictionaries = dataDictionary["results"] as! [[String: Any]]
                 // Get the dictionary from the response key
-                let movies = dataDictionary["results"] as! [[String:Any]]
                 //Set global variable movies to movies
-                self.movies = movies
+                self.movies = []
+                for dictionary in movieDictionaries {
+                    let movie = Movie(dictionary: dictionary)
+                    self.movies.append(movie)
+                }
+                
+                
                 self.collectionView.reloadData()
-                //self.refresher.endRefreshing()
-                //SVProgressHUD.dismiss()
+//                self.refresher.endRefreshing()
+//                SVProgressHUD.dismiss()
             }
         }
         task.resume()
